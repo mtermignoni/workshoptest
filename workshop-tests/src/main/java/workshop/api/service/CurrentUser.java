@@ -1,5 +1,6 @@
 package workshop.api.service;
 
+import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,19 @@ public class CurrentUser {
 	@Autowired
 	Cache cache;
 
-	public User getUserByToken(String token) throws InvalidTokenException {
+	@Autowired
+	UserClient userClient;
+
+	public String getUserClient() {
+		try {
+			userClient.getResponseJsonSuccess();
+			return "-OK- RETORNO!!!";
+		} catch(FeignException e) {
+			return "-OFF- RETORNO!!!";
+		}
+	}
+
+		public User getUserByToken(String token) throws InvalidTokenException {
 		
 		if (!cache.valid(token)) {
 			throw new InvalidTokenException();

@@ -18,11 +18,11 @@ import workshop.api.model.User;
 import workshop.api.service.Cache;
 import workshop.api.service.CurrentUser;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 public class CurrentUserTest {
 
 	// O que acontece se tirar esse @Mock? Porquê?
-	@Mock
+	/*@Mock
 	Cache cache;
 
 	@InjectMocks
@@ -40,7 +40,7 @@ public class CurrentUserTest {
 		ReflectionTestUtils.setField(currentUser, "uniqueUserName", "test fake user");
 		
 	}
-
+	
 	@Test
 	public void getCurrentUser() throws InvalidTokenException {
 
@@ -51,6 +51,6 @@ public class CurrentUserTest {
 		assertNotNull(user.getEmail());
 		assertNotNull(user.getPassword());
 
-	}
+	}*/
 
 }
